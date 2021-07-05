@@ -1,7 +1,5 @@
 package goResponse
 
-import "fmt"
-
 type Response struct {
 	headers    map[string]string
 	body       string
@@ -58,9 +56,6 @@ func (r *Response) WithStatusCode(code int) {
 
 func (r *Response) WithCookie(cookie interface{}) {
 	c := cookie.(*Cookie)
-	fmt.Println(cookie)
-
-	fmt.Println(c.GetName())
 	r.cookies[c.GetName()] = cookie
 }
 
