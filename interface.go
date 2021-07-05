@@ -1,8 +1,11 @@
 package goResponse
 
 type CookieInterface interface {
-	Set(r ResponseInterface)
-	Get(r ResponseInterface, name string) (bool, CookieInterface)
+	Create(name string, value string, duration int, path string)
+	GetName() string
+	GetValue() string
+	GetDuration() int
+	GetPath() string
 }
 
 type ResponseInterface interface {
@@ -14,4 +17,7 @@ type ResponseInterface interface {
 	GetBody() string
 	GetStatusCode() int
 	WithStatusCode(status int)
+	WithCookie(cookie interface{})
+	GetCookies() map[string]interface{}
+	GetCookie(name string) interface{}
 }
